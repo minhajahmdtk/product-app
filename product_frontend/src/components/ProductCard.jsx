@@ -22,7 +22,7 @@ const ProductCard = ({ source }) => {
           console.log("Fetching MongoDB products...");
 
           response = await axios.get(
-            "http://localhost:3000/products"
+            "/api/products"
           );
         }
 

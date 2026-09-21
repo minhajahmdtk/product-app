@@ -35,7 +35,7 @@ const AddProduct = () => {
       console.log("Sending:", productData);
 
       const response = await axios.post(
-        "http://localhost:3000/products/add",
+        "/api/products/add",
         productData
       );
 
