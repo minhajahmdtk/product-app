@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axiosInstance from "../../axiosInterceptor";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,8 +23,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axiosInstance.post(
-        "/auth/login",
+      const response = await axios.post(
+        "/api/auth/login",
         form
       );
 
@@ -73,7 +73,6 @@ const Login = () => {
 
         </div>
 
-
         {/* Login Card */}
 
         <form
@@ -84,7 +83,6 @@ const Login = () => {
           <h2 className="text-2xl font-bold text-center mb-6">
             Login
           </h2>
-
 
           {/* Email */}
 
@@ -108,7 +106,6 @@ const Login = () => {
 
           </div>
 
-
           {/* Password */}
 
           <div className="form-control mb-6">
@@ -131,7 +128,6 @@ const Login = () => {
 
           </div>
 
-
           {/* Login Button */}
 
           <button
@@ -140,7 +136,6 @@ const Login = () => {
           >
             Login
           </button>
-
 
           {/* Register Link */}
 

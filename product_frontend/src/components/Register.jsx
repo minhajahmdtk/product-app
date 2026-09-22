@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axiosInstance from "../../axiosInterceptor";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -24,8 +24,8 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axiosInstance.post(
-        "/auth/register",
+      const response = await axios.post(
+        "/api/auth/register",
         form
       );
 
@@ -34,7 +34,6 @@ const Register = () => {
       alert("Registration Successful");
 
       navigate("/login");
-
     } catch (error) {
       console.error("Registration error:", error);
 
@@ -50,8 +49,6 @@ const Register = () => {
 
       <div className="w-full max-w-md">
 
-        {/* Logo / Heading */}
-
         <div className="text-center mb-8">
 
           <h1 className="text-4xl font-bold text-blue-400">
@@ -64,9 +61,6 @@ const Register = () => {
 
         </div>
 
-
-        {/* Register Card */}
-
         <form
           onSubmit={handleSubmit}
           className="card bg-base-100 shadow-xl p-8"
@@ -75,9 +69,6 @@ const Register = () => {
           <h2 className="text-2xl font-bold text-center mb-6">
             Create Account
           </h2>
-
-
-          {/* Name */}
 
           <div className="form-control mb-5">
 
@@ -99,9 +90,6 @@ const Register = () => {
 
           </div>
 
-
-          {/* Email */}
-
           <div className="form-control mb-5">
 
             <label className="label">
@@ -121,9 +109,6 @@ const Register = () => {
             />
 
           </div>
-
-
-          {/* Password */}
 
           <div className="form-control mb-6">
 
@@ -145,18 +130,12 @@ const Register = () => {
 
           </div>
 
-
-          {/* Register Button */}
-
           <button
             type="submit"
             className="btn btn-primary w-full"
           >
             Register
           </button>
-
-
-          {/* Login Link */}
 
           <p className="text-center text-gray-500 mt-6">
 
